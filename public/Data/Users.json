@@ -1,0 +1,10 @@
+{
+  "id": "5310938c-619c-415c-8c21-d1756873de87",
+  "firstName": "Test",
+  "lastName": "User",
+  "role": "USER",
+  "email": "user@example.com",
+  "balance": 0,
+  "KYC": true,
+  "password": "user@example.com"
+}
