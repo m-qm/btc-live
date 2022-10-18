@@ -1,26 +1,18 @@
 import React, { ReactElement, useCallback } from 'react';
-import { Box, Button, Paper, Typography, useTheme } from '@mui/material';
+import {
+  Box, Button, Paper, Typography, useTheme,
+} from '@mui/material';
 import { Form, Formik } from 'formik';
 import { Dispatch } from 'redux';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
 import { useSnackbar } from 'notistack';
-import {
-  SystemActionTypes,
-  UpdateSessionAction,
-  UserInfoInterface,
-} from '../../Shared/System/SystemTypes';
+import { SystemActionTypes, UpdateSessionAction, UserInfoInterface } from '../../Shared/System/SystemTypes';
 import { updateSession } from '../../Shared/System/State/SystemActions';
 import { getUserRoleByString } from '../../Shared/System/State/SystemSelectors';
-import {
-  LoginInitialValues,
-  LoginValidationSchema,
-} from './Utils/LoginHelpers';
-import {
-  LoginFormFields,
-  LoginFormFieldsInterface,
-} from './Components/LoginFormFields';
+import { LoginInitialValues, LoginValidationSchema } from './Utils/LoginHelpers';
+import { LoginFormFields, LoginFormFieldsInterface } from './Components/LoginFormFields';
 import { LoginInitialValuesInterface } from './Utils/LoginInterfaces';
 import { isEmpty } from '../../Shared/Utils/Helpers';
 import { useStylesLogin } from './Styles/LoginStyles';
@@ -37,9 +29,8 @@ export function Login({ userData }: LoginInterface): ReactElement {
   const { enqueueSnackbar } = useSnackbar();
 
   const isValidUser = useCallback(
-    (values: LoginInitialValuesInterface): boolean =>
-      userData && !isEmpty(userData) ? values.email === userData.email : false,
-    [userData]
+    (values: LoginInitialValuesInterface): boolean => (userData && !isEmpty(userData) ? values.email === userData.email : false),
+    [userData],
   );
 
   const handleSubmit = useCallback(
@@ -59,7 +50,7 @@ export function Login({ userData }: LoginInterface): ReactElement {
         });
       }
     },
-    [dispatch, enqueueSnackbar, isValidUser, navigate, userData]
+    [dispatch, enqueueSnackbar, isValidUser, navigate, userData],
   );
 
   return (
@@ -68,9 +59,7 @@ export function Login({ userData }: LoginInterface): ReactElement {
         <Formik
           initialValues={LoginInitialValues}
           validationSchema={LoginValidationSchema}
-          onSubmit={(values: LoginInitialValuesInterface) =>
-            handleSubmit(values)
-          }
+          onSubmit={(values: LoginInitialValuesInterface) => handleSubmit(values)}
         >
           {({ errors, touched }: LoginFormFieldsInterface) => (
             <Box sx={useStylesLogin(theme).form}>
@@ -82,12 +71,7 @@ export function Login({ userData }: LoginInterface): ReactElement {
                 <LoginFormFields errors={errors} touched={touched} />
                 <Box mt={2} />
                 <Box sx={useStylesLogin(theme).button}>
-                  <Button
-                    disabled={!isEmpty(errors)}
-                    endIcon={<LoginIcon />}
-                    variant="contained"
-                    type="submit"
-                  >
+                  <Button disabled={!isEmpty(errors)} endIcon={<LoginIcon />} variant="contained" type="submit">
                     Sign in
                   </Button>
                 </Box>
