@@ -1,4 +1,5 @@
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import React from 'react';
+import { ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -12,7 +13,6 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline enableColorScheme />
       <SnackbarProvider
         maxSnack={1}
         anchorOrigin={{

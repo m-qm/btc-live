@@ -17,7 +17,7 @@ export function LoginPage(): ReactElement {
       .login()
       .then((data: UserInfoInterface) => {
         setUserData(data);
-      });
+      }).catch((e) => console.error(e));
   }, []);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export function LoginPage(): ReactElement {
   }, [handleLogin]);
 
   return (
-    <LayoutPage centred isLoggedIn={systemState.loggedIn}>
+    <LayoutPage centered isLoggedIn={systemState.loggedIn}>
       <Login userData={userData} />
     </LayoutPage>
   );

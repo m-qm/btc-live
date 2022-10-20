@@ -1,8 +1,5 @@
 import {
-  CLEAR_SESSION,
-  SystemActionTypes,
-  UPDATE_SESSION,
-  UserInfoInterface,
+  CLEAR_SESSION, SystemActionTypes, UPDATE_SESSION, UserInfoInterface,
 } from '../SystemTypes';
 
 export function updateSession(userInfo: UserInfoInterface): SystemActionTypes {

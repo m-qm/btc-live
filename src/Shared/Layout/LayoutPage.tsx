@@ -1,18 +1,16 @@
-import { Box, Container, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Box, Container, useMediaQuery, useTheme,
+} from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useStylesLayout } from './Styles/LayoutPageStyles';
 import { HeaderBar } from './HeaderBar/HeaderBar';
 
 type LayoutInterface = PropsWithChildren<{
-  centred: boolean;
+  centered: boolean;
   isLoggedIn?: boolean;
 }>;
 
-export function LayoutPage({
-  children,
-  centred,
-  isLoggedIn = true,
-}: LayoutInterface) {
+export function LayoutPage({ children, centered, isLoggedIn = true }: LayoutInterface) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
 
@@ -21,7 +19,7 @@ export function LayoutPage({
       <HeaderBar isLoggedIn={isLoggedIn} />
       <Box
         display="flex"
-        alignItems={centred ? 'center' : 'initial'}
+        alignItems={centered ? 'center' : 'initial'}
         flexGrow={1}
         mx={isMobile ? 2 : 4}
         sx={useStylesLayout(theme)}

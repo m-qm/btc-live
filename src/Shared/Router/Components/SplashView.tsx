@@ -16,7 +16,8 @@ export const SplashView = (): ReactElement => (
     bgcolor="white"
   >
     <Box width="318px" textAlign="center">
-      Page is not available. Please{' '}
+      Page is not available. Please
+      {' '}
       <Link href={AppRoutes.Login} underline="hover">
         Login
       </Link>

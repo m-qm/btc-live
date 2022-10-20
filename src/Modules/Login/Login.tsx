@@ -1,4 +1,6 @@
-import React, { ReactElement, useCallback } from 'react';
+import React, {
+  ReactElement, useCallback,
+} from 'react';
 import {
   Box, Button, Paper, Typography, useTheme,
 } from '@mui/material';
@@ -19,7 +21,7 @@ import { useStylesLogin } from './Styles/LoginStyles';
 import { AppRoutes } from '../../Shared/Router/Utils/RouterHelpers';
 
 interface LoginInterface {
-  userData: UserInfoInterface | undefined;
+  userData: UserInfoInterface | undefined
 }
 
 export function Login({ userData }: LoginInterface): ReactElement {
@@ -29,29 +31,24 @@ export function Login({ userData }: LoginInterface): ReactElement {
   const { enqueueSnackbar } = useSnackbar();
 
   const isValidUser = useCallback(
-    (values: LoginInitialValuesInterface): boolean => (userData && !isEmpty(userData) ? values.email === userData.email : false),
+    (values: LoginInitialValuesInterface):boolean => (userData && !isEmpty(userData) ? values.email === userData.email : false),
     [userData],
   );
 
-  const handleSubmit = useCallback(
-    (values: LoginInitialValuesInterface): void => {
-      const dispatchAction = dispatch as Dispatch<SystemActionTypes>;
-      if (userData && isValidUser(values)) {
-        const role = getUserRoleByString(userData.role);
-        const userInfo = {
-          ...userData,
-          role,
-        };
-        dispatchAction(updateSession(userInfo));
-        navigate(AppRoutes.Dashboard);
-      } else {
-        enqueueSnackbar('User is not found in public/Users.json', {
-          variant: 'error',
-        });
-      }
-    },
-    [dispatch, enqueueSnackbar, isValidUser, navigate, userData],
-  );
+  const handleSubmit = useCallback((values: LoginInitialValuesInterface): void => {
+    const dispatchAction = dispatch as Dispatch<SystemActionTypes>;
+    if (userData && isValidUser(values)) {
+      const role = getUserRoleByString(userData.role);
+      const userInfo = {
+        ...userData,
+        role,
+      };
+      dispatchAction(updateSession(userInfo));
+      navigate(AppRoutes.Dashboard);
+    } else {
+      enqueueSnackbar('User is not found in public/Users.json', { variant: 'error' });
+    }
+  }, [dispatch, enqueueSnackbar, isValidUser, navigate, userData]);
 
   return (
     <Box sx={useStylesLogin(theme).box}>
@@ -71,9 +68,7 @@ export function Login({ userData }: LoginInterface): ReactElement {
                 <LoginFormFields errors={errors} touched={touched} />
                 <Box mt={2} />
                 <Box sx={useStylesLogin(theme).button}>
-                  <Button disabled={!isEmpty(errors)} endIcon={<LoginIcon />} variant="contained" type="submit">
-                    Sign in
-                  </Button>
+                  <Button disabled={!isEmpty(errors)} endIcon={<LoginIcon />} variant="contained" type="submit">Sign in</Button>
                 </Box>
               </Form>
             </Box>

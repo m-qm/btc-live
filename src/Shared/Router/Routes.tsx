@@ -1,9 +1,8 @@
-import { Outlet } from 'react-router-dom';
 import { SplashView } from './Components/SplashView';
+import { DashboardPage } from '../../Modules/Dashboard/DashboardPage';
 
 interface SecureRoutesInterface {
-  loggedIn: boolean;
+  loggedIn: boolean
 }
 
-export const SecureRoutes = ({ loggedIn }: SecureRoutesInterface) =>
-  loggedIn ? <Outlet /> : <SplashView />;
+export const SecureRoutes = ({ loggedIn }: SecureRoutesInterface) => (loggedIn ? <DashboardPage /> : <SplashView />);

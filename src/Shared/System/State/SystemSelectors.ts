@@ -1,12 +1,6 @@
-import {
-  SystemStateInterface,
-  SystemStateSelectorInterface,
-  UserRoleEnum,
-} from '../SystemTypes';
+import { SystemStateInterface, SystemStateSelectorInterface, UserRoleEnum } from '../SystemTypes';
 
-export const systemStateSelector = ({
-  System,
-}: SystemStateSelectorInterface): SystemStateInterface => System;
+export const systemStateSelector = ({ System }: SystemStateSelectorInterface): SystemStateInterface => System;
 
 export const getUserRoleByString = (dataRole: string): UserRoleEnum => {
   let role: UserRoleEnum;
