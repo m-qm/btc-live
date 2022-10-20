@@ -13,10 +13,16 @@ MUI framework for styles
 
 ## `Local build`
 ### `1. npm install`
+
 ### `2. npm run start`
 App will be running in http://localhost:3000
+
 ### `3. npm run build`
 Prod build
+
+### `4. Enter credentials`
+#### Email: user@example.com
+#### Password: user@example.com
 
 ## `Docker build`
 ### `docker build -t coincap:dev .`
