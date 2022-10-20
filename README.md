@@ -1,17 +1,26 @@
 # BTC live React App
-Frontend dockerized application using coincap.io API and React + Typescript, Redux state management, Formik in forms handling and MUI framework interface wise.
+Frontend test for BITA GmbH. 
+
+## Project STACK information
+
+Dockerized application fetching Coincap.io API data
+
+React + Typescript, Redux state management
+
+Formik for forms
+
+MUI framework for styles
+
 ## `Local build`
 ### `1. npm install`
-To install deps
 ### `2. npm run start`
-Start local version\
-Suggested port to open is http://localhost:3000
+App will be running in http://localhost:3000
 ### `3. npm run build`
 Prod build
 
 ## `Docker build`
 ### `docker build -t coincap:dev .`
-First step - Run this command to build up the container
+1 - Execute this command to build up the container
 
     docker run \
     -it \
