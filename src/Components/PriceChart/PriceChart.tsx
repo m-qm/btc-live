@@ -32,9 +32,12 @@ interface ChartInterface {
   chartData: ChartDataInterface | undefined;
   updateChart(): void;
   timestamp: number;
+  title: string;
 }
 
-export function PriceChart({ chartData, timestamp, updateChart }: ChartInterface): ReactElement {
+export function PriceChart({
+  chartData, timestamp, updateChart, title,
+} : ChartInterface): ReactElement {
   const [delay, setDelay] = useState<boolean>(false);
 
   const handleUpdateChart = useCallback((): void => {
@@ -49,7 +52,7 @@ export function PriceChart({ chartData, timestamp, updateChart }: ChartInterface
     plugins: {
       title: {
         display: true,
-        text: 'BTC price',
+        text: title,
       },
       legend: {
         display: true,

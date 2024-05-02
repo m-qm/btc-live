@@ -5,4 +5,7 @@ export const useStylesInfoBox = () => ({
   paper: {
     padding: '25px',
   },
+  background: {
+    backgroundColor: '#f5f5f5',
+  },
 });

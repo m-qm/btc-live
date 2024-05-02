@@ -9,7 +9,7 @@ interface InfoLabelInterface {
 export function InfoLabel({ labelName, value }: InfoLabelInterface): ReactElement {
   return (
     <>
-      <Box display="flex" color="black">
+      <Box display="flex" color="white">
         <label>{labelName}</label>
         <Typography ml={1} variant="inherit" component="p">
           {value}

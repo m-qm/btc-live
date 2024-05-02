@@ -36,7 +36,7 @@ export function Dashboard({
         <InfoCard updateRates={refreshRates} cryptoItem={ratesData?.data} timestamp={ratesData?.timestamp} />
         <Box my={2} />
 
-        <PriceChart updateChart={refreshChart} chartData={chartData} timestamp={chartTimestamp || 0} />
+        <PriceChart updateChart={refreshChart} chartData={chartData} timestamp={chartTimestamp || 0} title="Price Chart" />
         <Box my={2} />
         <InfoBox cryptoItem={assetData?.data} timestamp={assetData?.timestamp} updateAsset={refreshAsset} />
 
