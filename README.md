@@ -1,5 +1,4 @@
 # BTC live React App
-Frontend test for BITA GmbH. 
 
 ## Project STACK information
 
