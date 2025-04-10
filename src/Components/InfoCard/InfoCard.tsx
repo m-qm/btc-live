@@ -31,8 +31,6 @@ export function InfoCard({ cryptoItem, timestamp, updateRates }: InfoCardInterfa
     }, 1000);
   }, [updateRates]);
 
-  console.log('InfoCard', cryptoItem);
-
   return (
     <Card sx={useStylesInfoCard().card}>
       <CardContent sx={useStylesInfoCard().cardContent}>

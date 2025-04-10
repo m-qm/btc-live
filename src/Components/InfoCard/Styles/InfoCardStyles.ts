@@ -3,7 +3,7 @@ export const useStylesInfoCard = () => ({
     fontSize: '12px',
   },
   card: {
-    backgroundColor: 'grey',
+    backgroundColor: 'white',
   },
   cardContent: {
     padding: '24px',
