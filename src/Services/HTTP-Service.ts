@@ -24,7 +24,9 @@ export async function httpGet(url: string): Promise<AxiosResponse<unknown>> {
     baseURL: API_BASE,
     headers: {
       'Content-type': 'application/json',
-      Authorization: `Bearer ${process.env.REACT_APP_COINCAP_API_KEY || ''}`,
+      // fix Property 'env' does not exist on type 'ImportMeta'.ts(2339)
+      // @ts-ignore
+      Authorization: `Bearer ${import.meta.env.VITE_COINCAP_API_KEY}`,
     },
   }).get(url);
 
