@@ -17,14 +17,14 @@ export function Select({
   options,
 }: SelectInterface): ReactElement {
   return (
-    <Box>
+    <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'end', alignItems: 'end', marginTop: '10px' }}>
       <MuiSelect
         value={selectedCrypto}
         onChange={(e) => setSelectedCrypto(e.target.value as string)}
         disabled={isLoading}
         variant="outlined"
         color="info"
-        sx={{ backgroundColor: 'transparent', color: 'black', borderColor: 'black' }}
+        sx={{ backgroundColor: 'black', color: 'white', borderColor: 'black' }}
       >
         {Object.entries(options).map(([key, value]) => (
           <MenuItem key={key} value={value}>

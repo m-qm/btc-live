@@ -6,6 +6,6 @@ export const useStylesInfoBox = () => ({
     padding: '25px',
   },
   background: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'white',
   },
 });
