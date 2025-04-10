@@ -24,6 +24,7 @@ export async function httpGet(url: string): Promise<AxiosResponse<unknown>> {
     baseURL: API_BASE,
     headers: {
       'Content-type': 'application/json',
+      Authorization: `Bearer ${process.env.REACT_APP_COINCAP_API_KEY || ''}`,
     },
   }).get(url);
 
