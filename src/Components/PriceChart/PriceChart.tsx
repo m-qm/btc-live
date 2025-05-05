@@ -71,41 +71,39 @@ export function PriceChart({
         text: title,
         color: '#ffffff',
         font: {
-          size: 18,
-          weight: 'bold',
+          size: 20,
+          weight: '600',
           family: 'Geist, sans-serif',
+        },
+        padding: {
+          bottom: 16,
         },
       },
       legend: {
-        display: true,
-        labels: {
-          color: '#cccccc',
-          font: {
-            family: 'Geist, sans-serif',
-          },
-        },
-      },
-      tooltip: {
-        backgroundColor: '#333333',
-        titleColor: '#ffffff',
-        bodyColor: '#dddddd',
+        display: false,
       },
     },
     scales: {
       x: {
         ticks: {
-          color: '#bbbbbb',
+          color: '#aaaaaa',
+          font: {
+            family: 'Geist, sans-serif',
+          },
         },
         grid: {
-          color: '#444444',
+          color: 'rgba(255, 255, 255, 0.05)',
         },
       },
       y: {
         ticks: {
-          color: '#bbbbbb',
+          color: '#aaaaaa',
+          font: {
+            family: 'Geist, sans-serif',
+          },
         },
         grid: {
-          color: '#444444',
+          color: 'rgba(255, 255, 255, 0.05)',
         },
       },
     },
