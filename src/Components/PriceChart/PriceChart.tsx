@@ -73,7 +73,7 @@ export function PriceChart({
         font: {
           size: 18,
           weight: 'bold',
-          family: 'Roboto, sans-serif',
+          family: 'Geist, sans-serif',
         },
       },
       legend: {
@@ -81,7 +81,7 @@ export function PriceChart({
         labels: {
           color: '#cccccc',
           font: {
-            family: 'Roboto, sans-serif',
+            family: 'Geist, sans-serif',
           },
         },
       },
