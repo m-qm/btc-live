@@ -79,7 +79,7 @@ export function Dashboard({
         <Divider sx={{ width: '100%', maxWidth: '800px', borderColor: '#ddd' }} />
 
         {/* BTC Converter */}
-        <Box
+        {/* <Box
           display="flex"
           flexDirection="column"
           alignItems="center"
@@ -121,7 +121,7 @@ export function Dashboard({
               Saved BTC: {savedBtc}
             </Typography>
           )}
-        </Box>
+        </Box> */}
 
         <Box display="flex" flexDirection="column" gap={4} width="100%" maxWidth="800px">
           <InfoCard
