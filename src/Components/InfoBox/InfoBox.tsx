@@ -10,6 +10,7 @@ import { USD_CURRENCY_TICKER } from '../../Shared/Config';
 import { useStylesInfoBox } from './Styles/InfoBoxStyles';
 import { InfoBoxHeader } from './Components/InfoBoxHeader';
 import { InfoLabelRow } from '../InfoLabelRow/InfoLabelRow';
+import { theme } from '../../Shared/Theme';
 
 interface InfoBoxInterface {
     cryptoItem: AssetsItemInterface | undefined;
@@ -33,7 +34,7 @@ export function InfoBox({ cryptoItem, timestamp, updateAsset }: InfoBoxInterface
   }, [cryptoItem]);
 
   return (
-    <Paper sx={useStylesInfoBox().paper} elevation={3}>
+    <Paper sx={useStylesInfoBox(theme).paper} elevation={3}>
       <InfoBoxHeader
         delay={delay}
         setDelay={setDelay}
@@ -52,49 +53,49 @@ export function InfoBox({ cryptoItem, timestamp, updateAsset }: InfoBoxInterface
           <InfoLabelRow
             labelName="Crypto"
             value={`${cryptoItem?.name}[${cryptoItem?.symbol}]`}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName="Supply"
             value={Number(cryptoItem?.supply).toFixed(0)}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName="Max Supply"
             value={Number(cryptoItem?.maxSupply).toFixed(0)}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName={`Market Cap, ${USD_CURRENCY_TICKER}`}
             value={formatCurrency.format(Number(cryptoItem?.marketCapUsd))}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName={`Volume 24h, ${USD_CURRENCY_TICKER}`}
             value={formatCurrency.format(Number(cryptoItem?.volumeUsd24Hr))}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName={`Price, ${USD_CURRENCY_TICKER}`}
             value={formatCurrency.format(Number(cryptoItem?.priceUsd))}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName="Change (%), 24h"
             value={Number(cryptoItem?.changePercent24Hr).toFixed(2)}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             labelName={`Volume-Weighted Average Price (VWAP), ${USD_CURRENCY_TICKER}`}
             value={formatCurrency.format(Number(cryptoItem?.vwap24Hr))}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
           <InfoLabelRow
             withLink
             link={makeExplorerLink}
             labelName="Explore"
             value={cryptoItem?.explorer}
-            labelSx={useStylesInfoBox().label}
+            labelSx={useStylesInfoBox(theme).label}
           />
         </>
       )}

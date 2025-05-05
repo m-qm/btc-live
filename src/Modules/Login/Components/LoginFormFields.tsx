@@ -16,20 +16,20 @@ export function LoginFormFields({ errors, touched }: LoginFormFieldsInterface): 
     <>
       <Box display="flex" flexDirection="column">
         <Box sx={useStylesLogin(theme).label}>
-          <label>Email</label>
+          <label htmlFor="email">Email</label>
         </Box>
         <Box sx={useStylesLogin(theme).input}>
-          <Field autoComplete="off" name="email" type="email" />
+          <Field autoComplete="off" id="email" name="email" type="email" />
         </Box>
         {errors.email && touched.email ? <Box sx={useStylesLogin(theme).errorLabel}>{errors.email}</Box> : null}
       </Box>
       <Box my={2} />
       <Box display="flex" flexDirection="column">
         <Box sx={useStylesLogin(theme).label}>
-          <label>Password</label>
+          <label htmlFor="password">Password</label>
         </Box>
         <Box sx={useStylesLogin(theme).input}>
-          <Field autoComplete="off" type="password" name="password" />
+          <Field autoComplete="off" id="password" type="password" name="password" />
         </Box>
         {errors.password && touched.password ? (
           <Box sx={useStylesLogin(theme).errorLabel}>{errors.password}</Box>

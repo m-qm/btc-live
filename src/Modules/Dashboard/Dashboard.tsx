@@ -68,11 +68,12 @@ export function Dashboard({
         alignItems="center"
         gap={4}
         padding={4}
-        bgcolor="#f9f9f9"
+        marginTop={2}
+        bgcolor="#1f1f1f"
         color="black"
         minHeight="100vh"
       >
-        <Typography variant="h4" component="h1" fontWeight="bold" color="#333">
+        <Typography variant="h4" component="h3" fontWeight="bold" color="white">
           Dashboard
         </Typography>
 

@@ -1,4 +1,6 @@
-export const useStylesInfoBox = () => ({
+import { Theme } from '@mui/material';
+
+export const useStylesInfoBox = (theme: Theme) => ({
   label: {
     fontSize: '12px',
   },
@@ -6,6 +8,6 @@ export const useStylesInfoBox = () => ({
     padding: '25px',
   },
   background: {
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.background.default,
   },
 });

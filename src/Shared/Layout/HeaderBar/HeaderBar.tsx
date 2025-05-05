@@ -31,7 +31,7 @@ export function HeaderBar({ isLoggedIn }: AppBarInterface): ReactElement {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            BTC Live App
+            Crypto Track
           </Typography>
           {isLoggedIn ? (
             <Button endIcon={<LogoutIcon />} onClick={handleLogout} color="inherit">Logout</Button>

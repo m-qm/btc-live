@@ -35,6 +35,13 @@ export function InfoBoxHeader({
             type="button"
             size="small"
             onClick={handleUpdateAsset}
+            sx={{
+              backgroundColor: '#2e2e2e',
+              color: '#ffffff',
+              '&:hover': {
+                backgroundColor: '#444444',
+              },
+            }}
           >
             Update information
           </Button>

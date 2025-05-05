@@ -8,13 +8,18 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend, ChartData,
+  Legend,
+  ChartData,
 } from 'chart.js';
-import { Box, LinearProgress } from '@mui/material';
-import Button from '@mui/material/Button';
+import {
+  Box,
+  LinearProgress,
+  Button,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { formatTime } from '../../Shared/Utils/Helpers';
-import { useStylesPriceChart } from './Styles/PriceChartStyles';
 import { InfoLabel } from '../InfoLabel/InfoLabel';
 import { ChartDataInterface } from './Utils/PriceChartInterfaces';
 
@@ -25,7 +30,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 );
 
 interface ChartInterface {
@@ -35,9 +40,18 @@ interface ChartInterface {
   title: string;
 }
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 export function PriceChart({
-  chartData, timestamp, updateChart, title,
-} : ChartInterface): ReactElement {
+  chartData,
+  timestamp,
+  updateChart,
+  title,
+}: ChartInterface): ReactElement {
   const [delay, setDelay] = useState<boolean>(false);
 
   const handleUpdateChart = useCallback((): void => {
@@ -49,43 +63,98 @@ export function PriceChart({
   }, [updateChart]);
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       title: {
         display: true,
         text: title,
+        color: '#ffffff',
+        font: {
+          size: 18,
+          weight: 'bold',
+          family: 'Roboto, sans-serif',
+        },
       },
       legend: {
         display: true,
+        labels: {
+          color: '#cccccc',
+          font: {
+            family: 'Roboto, sans-serif',
+          },
+        },
+      },
+      tooltip: {
+        backgroundColor: '#333333',
+        titleColor: '#ffffff',
+        bodyColor: '#dddddd',
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: '#bbbbbb',
+        },
+        grid: {
+          color: '#444444',
+        },
+      },
+      y: {
+        ticks: {
+          color: '#bbbbbb',
+        },
+        grid: {
+          color: '#444444',
+        },
       },
     },
   };
 
+  const chartContainerStyle = {
+    backgroundColor: '#1e1e1e',
+    padding: '16px',
+    borderRadius: '12px',
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)',
+    color: '#ffffff',
+    minHeight: '300px',
+  };
+
   return (
-    <Box sx={useStylesPriceChart().chart}>
-      <Box mx={2} />
-      {delay ? (
-        <Box height="200px">
-          <LinearProgress />
-        </Box>
-      ) : (
-        <Line
-          data={chartData || [] as unknown as ChartData<'line', string[], string>}
-          options={options}
-        />
-      )}
-      <Box mt={2} />
-      <Button
-        disabled={delay}
-        endIcon={<RefreshIcon />}
-        variant="contained"
-        type="button"
-        size="small"
-        onClick={handleUpdateChart}
-      >
-        Update information
-      </Button>
-      <Box mb={1} />
-      <InfoLabel value={formatTime(timestamp)} labelName="Last updated" />
-    </Box>
+      <Box sx={chartContainerStyle}>
+        <Box mx={2} />
+        {delay ? (
+          <Box height="200px">
+            <LinearProgress />
+          </Box>
+        ) : (
+          <Box height="300px">
+            <Line
+              data={chartData || ([] as unknown as ChartData<'line', string[], string>)}
+              options={options}
+            />
+          </Box>
+        )}
+        <Box mt={2} />
+        <Button
+          disabled={delay}
+          endIcon={<RefreshIcon />}
+          variant="contained"
+          type="button"
+          size="small"
+          onClick={handleUpdateChart}
+          sx={{
+            backgroundColor: '#2e2e2e',
+            color: '#ffffff',
+            '&:hover': {
+              backgroundColor: '#444444',
+            },
+          }}
+        >
+          Update information
+        </Button>
+        <Box mb={1} />
+        <InfoLabel value={formatTime(timestamp)} labelName="Last updated" />
+      </Box>
   );
 }

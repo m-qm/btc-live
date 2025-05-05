@@ -3,10 +3,10 @@ export const useStylesInfoCard = () => ({
     fontSize: '12px',
   },
   card: {
-    backgroundColor: 'white',
+    backgroundColor: '#121212',
   },
   cardContent: {
     padding: '24px',
-    color: 'black',
+    color: 'white',
   },
 });
