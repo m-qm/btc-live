@@ -24,7 +24,7 @@ Prod build
 #### Password: user@example.com
 
 ## `Docker build`
-### `docker build -t coincap:dev .`
+### `docker build -t btc-live:dev .`
 1 - Execute this command to build up the container
 
     docker run \
